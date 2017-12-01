@@ -40,6 +40,4 @@ public class Array7 {
 	public int[] toIntArray(){
 		return array;
 	}
-	
->>>>>>> b3bf068499d5ca0e65b3d431c529e2225a14f178
 }
