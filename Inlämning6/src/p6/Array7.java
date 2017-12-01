@@ -37,4 +37,8 @@ public class Array7 {
 		return new Array7(this);
 	}
 	
+	public int[] toIntArray(){
+		return array;
+	}
+	
 }
