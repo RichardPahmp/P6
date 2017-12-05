@@ -14,14 +14,17 @@ public class Test1UI extends JPanel {
 	private Array7x7 arr;
 	
 	public Test1UI() {
+		centerLabels = new JPanel();
+//		westText = new JPanel();
+		
 		arr = new Array7x7(Signs.B);
-		setPreferredSize(new Dimension(500,500));
+//		setPreferredSize(new Dimension(500,500));
 		setLayout(new BorderLayout());
 		centerLabels.setLayout(new GridLayout(7, 7));
 		setUpCenter();
-		westText.setLayout(new GridLayout(1, 7));
-		setUpTextWest();
-		add(westText, BorderLayout.CENTER);
+//		westText.setLayout(new GridLayout(1, 7));
+//		setUpTextWest();
+//		add(westText, BorderLayout.CENTER);
 		add(centerLabels, BorderLayout.CENTER);
 	}
 	
