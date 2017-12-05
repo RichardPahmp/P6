@@ -46,6 +46,7 @@ public class Array7x7 {
 
 		for (int i = 0; i < tempCol.length; i++) {
 			tempCol[i] = array7[i].getElement(col);
+			//System.out.println(tempCol[i]);
 		}
 
 		return new Array7(tempCol);
