@@ -36,8 +36,6 @@ public class Test1UI extends JPanel {
 
 	}
 	
-	
-	
 	private void setUpLabels() {
 		lbl00 = new JLabel(""+arr.getElement(0, 0));
 		lbl01 = new JLabel("" + arr.getElement(0, 1));
