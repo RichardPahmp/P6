@@ -20,7 +20,7 @@ public class Test1UI extends JPanel {
 	private Array7x7 arr;
 
 	public Test1UI() {
-		arr = new Array7x7(Signs.B);
+		arr = new Array7x7(Signs.FOUR);
 		setPreferredSize(new Dimension(800, 500));
 		setLayout(new BorderLayout());
 		
@@ -113,10 +113,15 @@ public class Test1UI extends JPanel {
 
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 7; j++) {
-				JLabel label = new JLabel("" + arr.getElement(i, j));
+				String temp = arr.getElement(i, j) + "";
+				JLabel label = new JLabel("" + temp);
 				label.setHorizontalAlignment(label.CENTER);
 				label.setOpaque(true);
-				label.setBackground(Color.GRAY);
+				if(temp.equals("0")){
+					label.setBackground(Color.GRAY);
+				}else{
+					label.setBackground(Color.GREEN);
+				}
 				label.setForeground(Color.WHITE);
 				label.setFont(lblFont);
 				centerLabels.add(label);
