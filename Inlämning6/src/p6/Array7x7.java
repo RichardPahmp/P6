@@ -1,6 +1,6 @@
 package p6;
 
-public class Array7x7 {
+public class Array7x7 { 
 	private Array7[] array7 = new Array7[7];
 
 	public Array7x7() {
