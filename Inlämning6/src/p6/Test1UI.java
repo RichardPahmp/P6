@@ -20,7 +20,7 @@ public class Test1UI extends JPanel {
 		arr = new Array7x7(Signs.B);
 //		setPreferredSize(new Dimension(500,500));
 		setLayout(new BorderLayout());
-		centerLabels.setLayout(new GridLayout(7, 7));
+		centerLabels.setLayout(new GridLayout(7, 7, 20, 20));
 		setUpCenter();
 //		westText.setLayout(new GridLayout(1, 7));
 //		setUpTextWest();
