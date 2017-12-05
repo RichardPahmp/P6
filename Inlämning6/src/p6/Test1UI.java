@@ -10,6 +10,7 @@ public class Test1UI extends JPanel {
 	private JTextField row0, row1, row2, row3, row4, row5, row6, col0, col1, col2, col3, col4, col5, col6, rowInput, colInput;
 	private JButton readRow, writeRow, readCol, writeCol;
 	private JPanel centerLabels;
+	private JPanel westText;
 	private Array7x7 arr;
 	
 	public Test1UI() {
@@ -18,8 +19,21 @@ public class Test1UI extends JPanel {
 		setLayout(new BorderLayout());
 		centerLabels.setLayout(new GridLayout(7, 7, 20, 20));
 		setUpCenter();
-		
+		westText.setLayout(new GridLayout(1, 7));
+		setUpTextWest();
+		add(westText, BorderLayout.CENTER);
 		add(centerLabels, BorderLayout.CENTER);
+	}
+	
+	private void setUpTextWest() {
+		col0 = new JTextField("");
+		col1 = new JTextField("");
+		col2 = new JTextField("");
+		col3 = new JTextField("");
+		col4 = new JTextField("");
+		col5 = new JTextField("");
+		col6 = new JTextField("");
+
 	}
 	
 	private void setUpLabels() {
