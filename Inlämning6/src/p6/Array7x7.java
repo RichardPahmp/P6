@@ -1,14 +1,10 @@
 package p6;
 
-public class Array7x7 { 
+public class Array7x7 {
 	private Array7[] array7 = new Array7[7];
 
 	public Array7x7() {
-		for(int i = 0; i < array7.length; i++){
-			for(int j = 0; j < array7.length; j++) {
-				array7[i].setElement(j,0);
-			}
-		}
+
 	}
 
 	public Array7x7(int[][] array) {
@@ -46,7 +42,6 @@ public class Array7x7 {
 
 		for (int i = 0; i < tempCol.length; i++) {
 			tempCol[i] = array7[i].getElement(col);
-			//System.out.println(tempCol[i]);
 		}
 
 		return new Array7(tempCol);
@@ -68,7 +63,7 @@ public class Array7x7 {
 
 	public int[][] toIntArray() {
 		int[][] tempArray = new int[7][7];
-		for(int i = 0; i < tempArray.length; i++){
+		for (int i = 0; i < tempArray.length; i++) {
 			tempArray[i] = array7[i].toIntArray();
 		}
 		return tempArray;

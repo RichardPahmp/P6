@@ -11,30 +11,28 @@ public class Test1UI extends JPanel {
 	private Test1Controller controller;
 	private JTextField colTextField, rowTextField;
 	private JButton rowReadBtn, rowWriteBtn, colReadBtn, colWriteBtn;
+	Font lblFont = new Font("ComicSans", Font.BOLD, 16);
 
-	// 7x7 rutnätet och raden/kolumnen. Ligger i West i huvudpanelen. 
+	// 7x7 rutnätet och raden/kolumnen. Ligger i West i huvudpanelen.
 	private JPanel viewPanel = new JPanel();
 
 	// panel för knappar och inmatningsfält
 	private JPanel controlPanel = new JPanel();
 
-	//Panel för 7x7 rutnätet med labels 
-	private JPanel centerLabels;
-	//Panel för 7x1 rutnätet för en kolumn (vänster)
+	// Panel för 7x7 rutnätet med labels
+	private JPanel centerLabels = new JPanel();
+	// Panel är 7x1 rutnätet för en kolumn (v�nster)
 	private JPanel westLabels = new JPanel();
-	//Panel för 1x7 rutnätet för en rad (längst ner)
 	private JPanel southLabels = new JPanel();
-	private JPanel eastLabels;
+	private JPanel eastLabels = new JPanel();
 
 	private JTextField[] westTextFields = new JTextField[7];
 	private JTextField[] southTextFields = new JTextField[7];
 
 	private ButtonListener bl = new ButtonListener();
 
-
 	public Test1UI(Test1Controller controller) {
 		this.controller = controller;
-		controller.setUI(this);
 		setPreferredSize(new Dimension(800, 500));
 		setLayout(new BorderLayout());
 
@@ -47,25 +45,32 @@ public class Test1UI extends JPanel {
 
 		updateWest();
 		updateSouth();
-		setupEast();
-		updateLabels();
-
+		updateEast();
+		updateCenter();
 	}
 
-	private void setupEast() {
-		eastLabels = new JPanel();
+	private void updateEast() {
 		eastLabels.setLayout(new BorderLayout());
 
 		JPanel rowPanel = new JPanel();
+		rowPanel.setPreferredSize(new Dimension(150,120));
 		JPanel colPanel = new JPanel();
+		colPanel.setPreferredSize(new Dimension(150,40));
 
+		Dimension lblDim = new Dimension(70,30);
+		Dimension btnDim = new Dimension(145,30);
+		
 		JLabel rowLbl = new JLabel("Rad nr: ");
+		rowLbl.setPreferredSize(lblDim);
+		rowLbl.setHorizontalAlignment(rowLbl.LEFT);
 		rowTextField = new JTextField("6");
-		rowTextField.setPreferredSize(new Dimension(70, 30));
+		rowTextField.setPreferredSize(lblDim);
 
 		rowReadBtn = new JButton("Läs rad");
+		rowReadBtn.setPreferredSize(btnDim);
 		rowReadBtn.addActionListener(bl);
 		rowWriteBtn = new JButton("Skriv rad");
+		rowWriteBtn.setPreferredSize(btnDim);
 		rowWriteBtn.addActionListener(bl);
 
 		rowPanel.add(rowLbl);
@@ -76,11 +81,15 @@ public class Test1UI extends JPanel {
 		eastLabels.add(rowPanel, BorderLayout.NORTH);
 
 		JLabel colLbl = new JLabel("Kolumn nr: ");
+		colLbl.setPreferredSize(lblDim);
+		colLbl.setHorizontalAlignment(colLbl.LEFT);
 		colTextField = new JTextField("0");
-		colTextField.setPreferredSize(new Dimension(70, 30));
+		colTextField.setPreferredSize(lblDim);
 		colReadBtn = new JButton("Läs kolumn");
+		colReadBtn.setPreferredSize(btnDim);
 		colReadBtn.addActionListener(bl);
 		colWriteBtn = new JButton("Skriv kolumn");
+		colWriteBtn.setPreferredSize(btnDim);
 		colWriteBtn.addActionListener(bl);
 
 		colPanel.add(colLbl);
@@ -94,6 +103,7 @@ public class Test1UI extends JPanel {
 	}
 
 	private void updateWest() {
+		westLabels.removeAll();
 		westLabels.setLayout(new GridLayout(7, 1, 5, 0));
 		for (int i = 0; i < 7; i++) {
 			JTextField col = new JTextField(controller.getLeftColumn().getElement(i) + "");
@@ -103,17 +113,12 @@ public class Test1UI extends JPanel {
 			westTextFields[i] = col;
 			westLabels.add(col);
 		}
-	}
-	
-	public JPanel getWestLabels() {
-		return westLabels;
-	}
-	
-	public JPanel getViewPanel() {
-		return viewPanel;
+		viewPanel.add(westLabels, BorderLayout.WEST);
+		viewPanel.revalidate();
 	}
 
 	private void updateSouth() {
+		southLabels.removeAll();
 		southLabels.setLayout(new GridLayout(1, 7, 0, 5));
 		for (int i = 0; i < 7; i++) {
 			JTextField row = new JTextField(controller.getBottomRow().getElement(i) + "");
@@ -122,15 +127,12 @@ public class Test1UI extends JPanel {
 			southTextFields[i] = row;
 			southLabels.add(row);
 		}
-	}
-	
-	public JPanel getSouthLabels() {
-		return southLabels;
+		viewPanel.add(southLabels, BorderLayout.SOUTH);
+		viewPanel.revalidate();
 	}
 
-	Font lblFont = new Font("ComicSans", Font.BOLD, 16);
-
-	private void updateLabels() {
+	private void updateCenter() {
+		centerLabels.removeAll();
 		centerLabels.setLayout(new GridLayout(7, 7, 5, 5));
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 7; j++) {
@@ -148,44 +150,40 @@ public class Test1UI extends JPanel {
 				centerLabels.add(label);
 			}
 		}
+		viewPanel.add(centerLabels, BorderLayout.CENTER);
+		viewPanel.revalidate();
 	}
-	public JPanel getCenterLabels() {
-		return centerLabels;
-	}
-
-
 
 	private class ButtonListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource().equals(rowReadBtn)) {
-				controller.updateSouth();
-//				updateSouth(arr.getRow(Integer.parseInt(rowTextField.getText())));
+				controller.setBottomRow(Integer.parseInt(rowTextField.getText()));
+				updateSouth();
 
 			} else if (e.getSource().equals(rowWriteBtn)) {
 				int[] tempRow = new int[7];
 				for (int i = 0; i < southTextFields.length; i++) {
 					tempRow[i] = Integer.parseInt(southTextFields[i].getText());
 				}
-//				arr.setRow(Integer.parseInt(rowTextField.getText()), new Array7(tempRow));
-				controller.updateLabels();
+				controller.getArray().setRow(Integer.parseInt(rowTextField.getText()), new Array7(tempRow));
+				updateCenter();
 
 			} else if (e.getSource().equals(colReadBtn)) {
-				controller.updateWest();
-//				updateWest(arr.getCol(Integer.parseInt(colTextField.getText())));
+				controller.setLeftColumn(Integer.parseInt(colTextField.getText()));
+				updateWest();
 
 			} else if (e.getSource().equals(colWriteBtn)) {
-
 				int[] tempCol = new int[7];
 				for (int i = 0; i < westTextFields.length; i++) {
 					tempCol[i] = Integer.parseInt(westTextFields[i].getText());
 				}
-//				arr.setCol(Integer.parseInt(colTextField.getText()), new Array7(tempCol));
-				controller.updateLabels();
-
+				controller.getArray().setCol(Integer.parseInt(colTextField.getText()), new Array7(tempCol));
+				updateCenter();
 			}
 		}
 	}
+
 	public static void main(String[] args) {
 		Test1Controller control = new Test1Controller();
 		Test1UI test = new Test1UI(control);
