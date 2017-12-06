@@ -15,11 +15,13 @@ public class Test1Controller {
 	private Test1UI ui;
 	private Array7 leftColumn;
 	private Array7 bottomRow;
+	private Array7 rightColumn;
 
 	public Test1Controller() {
-		array = new Array7x7(Signs.A);
+		array = new Array7x7(Signs.X);
 		leftColumn = array.getCol(0);
 		bottomRow = array.getRow(6);
+		rightColumn = array.getCol(6);
 	}
 
 	public void setLeftColumn(int col) {
@@ -40,6 +42,10 @@ public class Test1Controller {
 
 	public Array7 getBottomRow() {
 		return bottomRow;
+	}
+	
+	public Array7 getRightColumn() {
+		return rightColumn;
 	}
 
 	public Array7x7 getArray() {
