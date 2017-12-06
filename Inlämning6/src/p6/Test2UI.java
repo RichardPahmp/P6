@@ -37,7 +37,6 @@ public class Test2UI extends JPanel {
 	}
 	
 	public void updateWest() {
-		westFields.removeAll();
 		westFields.setLayout(new GridLayout(7, 1, 10, 10));
 		for (int i = 0; i < 7; i++) {
 			JTextField tf = new JTextField(controller.getLeftColumn().getElement(i) + "");
@@ -46,33 +45,24 @@ public class Test2UI extends JPanel {
 			westTF[i] = tf;
 			westFields.add(tf);
 		}
-		westFields.revalidate();
 	}
 	
 	public void updateCenter() {
-		centerLabels.removeAll();
 		centerLabels.setLayout(new GridLayout(7,7, 5, 5));
 
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 7; j++) {
-				String temp = controller.getArray().getElement(i, j) + "";
-				JLabel label = new JLabel("" + temp);
-				label.setHorizontalAlignment(SwingConstants.CENTER);
-				label.setOpaque(true);
-				if (temp.equals("0")) {
-					label.setBackground(Color.GRAY);
-				} else {
-					label.setBackground(Color.GREEN);
-				}
-				label.setForeground(Color.WHITE);
-				centerLabels.add(label);
+				JLabel lbl = new JLabel(controller.getArray().getElement(i, j) + "");
+				lbl.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl.setOpaque(true);
+				lbl.setBackground(Color.GRAY);
+				lbl.setForeground(Color.WHITE);
+				centerLabels.add(lbl);
 			}
 		}
-		centerLabels.revalidate();
 	}
 	
 	public void updateEast() {
-		eastFields.removeAll();
 		eastFields.setLayout(new GridLayout(7,1, 10, 10));
 		for (int i = 0; i < 7; i++) {
 			JTextField tf = new JTextField(controller.getRightColumn().getElement(i) + "");
@@ -81,7 +71,6 @@ public class Test2UI extends JPanel {
 			eastTF[i] = tf;
 			eastFields.add(tf);
 		}
-		eastFields.revalidate();
 	}
 	
 	public void setupSouth() {
