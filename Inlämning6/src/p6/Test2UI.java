@@ -118,7 +118,11 @@ public class Test2UI extends JPanel {
 	public static void main(String[] args) {
 		Test1Controller cont = new Test1Controller();
 		Test2UI test = new Test2UI(cont);
-		JOptionPane.showMessageDialog(null, test);
+		JFrame frame = new JFrame("TEST 2 GUI");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.add(test);
+		frame.pack();
+		frame.setVisible(true);
 	}
 
 }
