@@ -1,5 +1,6 @@
 package p6;
 import java.awt.*;
+import java.awt.Color;
 import java.awt.event.*;
 
 import javax.swing.*;
@@ -9,7 +10,7 @@ public class Test2UI extends JPanel {
 	private JPanel westFields = new JPanel(); 
 	private JPanel eastFields = new JPanel();
 	private JPanel southBtns = new JPanel();
-	private Test1Controller control;
+	private Test2Controller controller;
 	private JTextField[] westTF = new JTextField[7];
 	private JTextField[] eastTF = new JTextField[7];
 	
@@ -18,8 +19,8 @@ public class Test2UI extends JPanel {
 	
 	private ButtonListener bl = new ButtonListener();
 	
-	public Test2UI(Test1Controller controller ) {
-		control = controller;
+	public Test2UI(Test2Controller controller ) {
+		this.controller = controller;
 		setPreferredSize(new Dimension(800,400));
 		setLayout(new BorderLayout());
 				
@@ -36,38 +37,51 @@ public class Test2UI extends JPanel {
 	}
 	
 	public void updateWest() {
+		westFields.removeAll();
 		westFields.setLayout(new GridLayout(7, 1, 10, 10));
 		for (int i = 0; i < 7; i++) {
-			JTextField tf = new JTextField(control.getLeftColumn().getElement(i) + "");
+			JTextField tf = new JTextField(controller.getLeftColumn().getElement(i) + "");
 			tf.setPreferredSize(new Dimension(40,40));
 			tf.setHorizontalAlignment(SwingConstants.CENTER);
 			westTF[i] = tf;
 			westFields.add(tf);
 		}
+		westFields.revalidate();
 	}
 	
 	public void updateCenter() {
+		centerLabels.removeAll();
 		centerLabels.setLayout(new GridLayout(7,7, 5, 5));
 
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 7; j++) {
-				JLabel lbl = new JLabel(control.getArray().getElement(i, j) + "");
-				lbl.setHorizontalAlignment(SwingConstants.CENTER);
-				lbl.setOpaque(true);
-				centerLabels.add(lbl);
+				String temp = controller.getArray().getElement(i, j) + "";
+				JLabel label = new JLabel("" + temp);
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setOpaque(true);
+				if (temp.equals("0")) {
+					label.setBackground(Color.GRAY);
+				} else {
+					label.setBackground(Color.GREEN);
+				}
+				label.setForeground(Color.WHITE);
+				centerLabels.add(label);
 			}
 		}
+		centerLabels.revalidate();
 	}
 	
 	public void updateEast() {
+		eastFields.removeAll();
 		eastFields.setLayout(new GridLayout(7,1, 10, 10));
 		for (int i = 0; i < 7; i++) {
-			JTextField tf = new JTextField(control.getRightColumn().getElement(i) + "");
+			JTextField tf = new JTextField(controller.getRightColumn().getElement(i) + "");
 			tf.setPreferredSize(new Dimension(40,40));
 			tf.setHorizontalAlignment(SwingConstants.CENTER);
 			eastTF[i] = tf;
 			eastFields.add(tf);
 		}
+		eastFields.revalidate();
 	}
 	
 	public void setupSouth() {
@@ -76,6 +90,7 @@ public class Test2UI extends JPanel {
 		moveLeftBtn = new JButton("<- Flytta vänster <-");
 		moveRightBtn = new JButton("-> Flytta höger ->");
 		moveLeftBtn.addActionListener(bl);
+		moveRightBtn.addActionListener(bl);
 		southBtns.add(moveLeftBtn);
 		southBtns.add(moveRightBtn);
 		southBtns.revalidate();
@@ -84,28 +99,11 @@ public class Test2UI extends JPanel {
 	private class ButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource().equals(moveLeftBtn)) {
+				controller.moveLeft();
 				
-				int[] temp = new int[7];
-				for (int i = 0; i < temp.length; i++) {
-					temp[i] = Integer.parseInt(westTF[i].getText());
-				}
-				
-				//Flyttar kolumn 0 till vänster textfields
-				for (int i = 0; i < temp.length; i++)
-					westTF[i].setText(""+control.getArray().getCol(i).getElement(i));
-				
-				//Flyttar kolumner 1-6 ett steg till vänster.
-				for (int i = 1; i < 7; i++) {
-					Array7 movingCol = control.getArray().getCol(i);
-					control.getArray().setCol(i-1, movingCol);
-				}
-				//Flyttar höger TextFields till kolumn 6
-				for (int i = 0; i < 7; i++) {
-					int movingNbr = Integer.parseInt(eastTF[i].getText());
-					control.getArray().getCol(6).setElement(i, movingNbr);
-				}
-				
+				updateWest();
 				updateCenter();
+				updateEast();
 				
 			} else if (e.getSource().equals(moveRightBtn)) {
 				
@@ -116,7 +114,7 @@ public class Test2UI extends JPanel {
 	
 	
 	public static void main(String[] args) {
-		Test1Controller cont = new Test1Controller();
+		Test2Controller cont = new Test2Controller();
 		Test2UI test = new Test2UI(cont);
 		JFrame frame = new JFrame("TEST 2 GUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
