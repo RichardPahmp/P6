@@ -21,9 +21,11 @@ public class Test1UI extends JPanel {
 
 	// Panel för 7x7 rutnätet med labels
 	private JPanel centerLabels = new JPanel();
-	// Panel är 7x1 rutnätet för en kolumn (v�nster)
+	// Panel är 7x1 rutnätet för en kolumn (vänster)
 	private JPanel westLabels = new JPanel();
+	// Panel för raden med JTextFields
 	private JPanel southLabels = new JPanel();
+	//Panel för val av rad/kol nr och läs/skriv
 	private JPanel eastLabels = new JPanel();
 
 	private JTextField[] westTextFields = new JTextField[7];
@@ -62,7 +64,7 @@ public class Test1UI extends JPanel {
 		
 		JLabel rowLbl = new JLabel("Rad nr: ");
 		rowLbl.setPreferredSize(lblDim);
-		rowLbl.setHorizontalAlignment(rowLbl.LEFT);
+		rowLbl.setHorizontalAlignment(SwingConstants.LEFT);
 		rowTextField = new JTextField("6");
 		rowTextField.setPreferredSize(lblDim);
 
@@ -82,7 +84,7 @@ public class Test1UI extends JPanel {
 
 		JLabel colLbl = new JLabel("Kolumn nr: ");
 		colLbl.setPreferredSize(lblDim);
-		colLbl.setHorizontalAlignment(colLbl.LEFT);
+		colLbl.setHorizontalAlignment(SwingConstants.LEFT);
 		colTextField = new JTextField("0");
 		colTextField.setPreferredSize(lblDim);
 		colReadBtn = new JButton("Läs kolumn");

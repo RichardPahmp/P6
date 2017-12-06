@@ -10,8 +10,6 @@ import java.awt.*;
 //		String temp = array.getElement(i, j) + "";
 //	}
 
-
-
 public class Test1Controller {
 	private Array7x7 array;
 	private Test1UI ui;
