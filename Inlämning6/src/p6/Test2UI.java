@@ -58,6 +58,8 @@ public class Test2UI extends JPanel {
 				lbl.setBackground(Color.GRAY);
 				lbl.setForeground(Color.WHITE);
 				centerLabels.add(lbl);
+				if (lbl.getText().equals("1"))
+					lbl.setBackground(Color.GREEN);
 			}
 		}
 	}
@@ -95,7 +97,11 @@ public class Test2UI extends JPanel {
 				updateEast();
 				
 			} else if (e.getSource().equals(moveRightBtn)) {
+				controller.moveRight();
 				
+				updateWest();
+				updateCenter();
+				updateEast();
 			}
 		}
 		

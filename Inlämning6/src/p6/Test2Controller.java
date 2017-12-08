@@ -56,6 +56,17 @@ public class Test2Controller {
 	}
 
 	public void moveRight() {
+		Array7 temp = rightColumn.getArray();
+		
+		rightColumn = array.getCol(6);
+		
+		for (int i = 6; i >-1; i--) {
+			array.setCol(i, array.getCol(i-1));
+		}
+		
+		array.setCol(0, leftColumn.getArray());
+		
+		leftColumn = temp;
 
 	}
 }
