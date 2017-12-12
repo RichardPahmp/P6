@@ -4,7 +4,7 @@ public class Array7x7 {
 	private Array7[] array7 = new Array7[7];
 
 	public Array7x7() {
-		for(int i = 0; i < array7.length; i++){
+		for (int i = 0; i < array7.length; i++) {
 			array7[i] = new Array7();
 		}
 	}
@@ -69,5 +69,25 @@ public class Array7x7 {
 			tempArray[i] = array7[i].toIntArray();
 		}
 		return tempArray;
+	}
+
+	public void shiftLeft() {
+		Array7 temp = getCol(0);
+
+		for (int i = 0; i < 6; i++) {
+			setCol(i, getCol(i + 1));
+		}
+
+		setCol(6, temp);
+	}
+
+	public void shiftRight() {
+		Array7 temp = getCol(6);
+		
+		for (int i = 6; i > 0; i--) {
+			setCol(i, getCol(i - 1));
+		}
+		
+		setCol(0, temp);
 	}
 }
