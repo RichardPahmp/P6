@@ -70,7 +70,7 @@ public class Test2Controller {
 		//sätter vänsterspalten i första kolumnen
 		array.setCol(0, leftColumn.getArray());
 		
-		//lägger högerspaltens gamla värden i vänsterkolumnen
+		//lägger högerspaltens gamla värden i vänster
 		leftColumn = temp;
 
 	}
