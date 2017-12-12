@@ -14,7 +14,7 @@ public class Array7x7 {
 	}
 
 	public Array7x7(Array7x7 array) {
-		this.array7 = array.array7;
+		setArray(array.toIntArray());
 	}
 
 	public void setElement(int row, int col, int value) {
@@ -50,7 +50,10 @@ public class Array7x7 {
 	}
 
 	public void setArray(Array7x7 array7x7) {
-		this.array7 = array7x7.array7;
+//		this.array7 = array7x7.array7;
+		for (int i = 0; i < 7; i++) {
+			array7[i] = new Array7(array7x7.array7[i]);
+		}
 	}
 
 	public void setArray(int[][] array) {
@@ -101,9 +104,20 @@ public class Array7x7 {
 					res.setElement(i, j, col2);
 				} else {
 					//res.setElement(i, j, 0);
-					System.out.println("wow");
+					//System.out.println(res.getElement(i, j));
 				}
 			}
+		}
+		return res;
+	}
+	
+	public String toString(){
+		String res = "";
+		for (int i = 0; i < 7; i++) {
+			for (int j = 0; j < 7; j++) {
+				res += this.getElement(i, j);
+			}
+			res += "\n";
 		}
 		return res;
 	}

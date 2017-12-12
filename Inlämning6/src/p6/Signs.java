@@ -50,6 +50,7 @@ public class Signs {
 		chars[' '] = new Array7x7(SPACE);
 		chars['.'] = new Array7x7(DOT);
 		chars[','] = new Array7x7(COMMA);
+		chars[':'] = new Array7x7(COLON);
 		chars[';'] = new Array7x7(SEMICOLON);
 		chars['!'] = new Array7x7(EXCLAMATION_MARK);
 		chars['?'] = new Array7x7(QUESTION_MARK);
