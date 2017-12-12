@@ -10,11 +10,16 @@ public class Array7 {
 	}
 	
 	public Array7(Array7 array7){
-		this.array = array7.array;
+		//this.array = array7.array;
+		for (int i = 0; i < array.length; i++) {
+			this.array[i] = array7.array[i];
+		}
 	}
 	
 	public Array7(int[] array){
-		this.array = array;
+		for (int i = 0; i < array.length; i++) {
+			this.array[i] = array[i];
+		}
 	}
 	
 	public void setElement(int pos, int value){
