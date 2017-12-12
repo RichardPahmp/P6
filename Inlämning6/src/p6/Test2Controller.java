@@ -37,41 +37,18 @@ public class Test2Controller {
 	}
 
 	public void moveLeft() {
-		//lagrar vänsterspaltens värden
-		Array7 temp = leftColumn.getArray();
-
-		//sätter första kolumnen som vänsterspalten
+		Array7 temp = rightColumn.getArray();
+		rightColumn = leftColumn.getArray();
 		leftColumn = array.getCol(0);
-
-		//går genom andra till sista kolumnen och flyttar till vänster
-		for (int i = 0; i < 6; i++) {
-			array.setCol(i, array.getCol(i+1));
-		}
-		
-		//sätter högerspalten in i sista kolumnen
-		array.setCol(6, rightColumn.getArray());
-		
-		//lägger vänsterspaltens gamla värden i högerkolumnen
-		rightColumn = temp;
+		array.shiftLeft();
+		array.setCol(6, temp);
 	}
 
 	public void moveRight() {
-		//lagrar högerspaltens värden
-		Array7 temp = rightColumn.getArray();
-		
-		//sätter sista kolumnen som högerspalt
+		Array7 temp = leftColumn.getArray();
+		leftColumn = rightColumn.getArray();
 		rightColumn = array.getCol(6);
-		
-		//går genom nästsista till första kolumnen och flyttar ett steg till höger
-		for (int i = 6; i > 0; i--) {
-			array.setCol(i, array.getCol(i-1));
-		}
-		
-		//sätter vänsterspalten i första kolumnen
-		array.setCol(0, leftColumn.getArray());
-		
-		//lägger högerspaltens gamla värden i vänster
-		leftColumn = temp;
-
+		array.shiftRight();
+		array.setCol(0, temp);
 	}
 }
