@@ -7,7 +7,7 @@ public class Test1Controller {
 	private Array7 bottomRow;
 
 	public Test1Controller() {
-		array = new Array7x7(Signs.getChar('A'));
+		array = new Array7x7(Signs.getChar('X'));
 		leftColumn = array.getCol(0);
 		bottomRow = array.getRow(6);
 	}

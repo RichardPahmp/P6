@@ -53,6 +53,8 @@ public class Signs {
 		chars[';'] = new Array7x7(SEMICOLON);
 		chars['!'] = new Array7x7(EXCLAMATION_MARK);
 		chars['?'] = new Array7x7(QUESTION_MARK);
+		chars['('] = new Array7x7(LEFT_PARENTHESES);
+		chars[')'] = new Array7x7(RIGHT_PARENTHESES);
 	}
 	
 	public static Array7x7 getChar(char c){
@@ -126,7 +128,23 @@ public class Signs {
 			{0,0,0,1,0,0,0},
 			{0,0,0,0,0,0,0},
 			{0,0,0,1,0,0,0}};
-	private static final int[][] ZERO = {
+	public static final int[][] LEFT_PARENTHESES = {
+			{0,0,1,0,0,0,0},
+			{0,1,0,0,0,0,0},
+			{1,0,0,0,0,0,0},
+			{1,0,0,0,0,0,0},
+			{1,0,0,0,0,0,0},
+			{0,1,0,0,0,0,0},
+			{0,0,1,0,0,0,0}};
+	public static final int[][] RIGHT_PARENTHESES = {
+			{0,0,0,0,1,0,0},
+			{0,0,0,0,0,1,0},
+			{0,0,0,0,0,0,1},
+			{0,0,0,0,0,0,1},
+			{0,0,0,0,0,0,1},
+			{0,0,0,0,0,1,0},
+			{0,0,0,0,1,0,0}};
+	public static final int[][] ZERO = {
 			{0,0,1,1,1,0,0},
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
