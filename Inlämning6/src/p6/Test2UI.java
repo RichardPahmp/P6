@@ -37,6 +37,7 @@ public class Test2UI extends JPanel {
 	}
 	
 	public void updateWest() {
+		westFields.removeAll();
 		westFields.setLayout(new GridLayout(7, 1, 10, 10));
 		for (int i = 0; i < 7; i++) {
 			JTextField tf = new JTextField(controller.getLeftColumn().getElement(i) + "");
@@ -45,9 +46,11 @@ public class Test2UI extends JPanel {
 			westTF[i] = tf;
 			westFields.add(tf);
 		}
+		westFields.revalidate();
 	}
 	
 	public void updateCenter() {
+		centerLabels.removeAll();
 		centerLabels.setLayout(new GridLayout(7,7, 5, 5));
 
 		for (int i = 0; i < 7; i++) {
@@ -62,9 +65,11 @@ public class Test2UI extends JPanel {
 					lbl.setBackground(Color.GREEN);
 			}
 		}
+		centerLabels.revalidate();
 	}
 	
 	public void updateEast() {
+		eastFields.removeAll();
 		eastFields.setLayout(new GridLayout(7,1, 10, 10));
 		for (int i = 0; i < 7; i++) {
 			JTextField tf = new JTextField(controller.getRightColumn().getElement(i) + "");
@@ -73,6 +78,7 @@ public class Test2UI extends JPanel {
 			eastTF[i] = tf;
 			eastFields.add(tf);
 		}
+		eastFields.revalidate();
 	}
 	
 	public void setupSouth() {

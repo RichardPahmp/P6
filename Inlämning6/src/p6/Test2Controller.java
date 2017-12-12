@@ -56,16 +56,21 @@ public class Test2Controller {
 	}
 
 	public void moveRight() {
+		//lagrar högerspaltens värden
 		Array7 temp = rightColumn.getArray();
 		
+		//sätter sista kolumnen som högerspalt
 		rightColumn = array.getCol(6);
 		
-		for (int i = 6; i >-1; i--) {
+		//går genom nästsista till första kolumnen och flyttar ett steg till höger
+		for (int i = 6; i > 0; i--) {
 			array.setCol(i, array.getCol(i-1));
 		}
 		
+		//sätter vänsterspalten i första kolumnen
 		array.setCol(0, leftColumn.getArray());
 		
+		//lägger högerspaltens gamla värden i vänsterkolumnen
 		leftColumn = temp;
 
 	}

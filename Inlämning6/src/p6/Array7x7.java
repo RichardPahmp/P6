@@ -4,7 +4,9 @@ public class Array7x7 {
 	private Array7[] array7 = new Array7[7];
 
 	public Array7x7() {
-
+		for(int i = 0; i < array7.length; i++){
+			array7[i] = new Array7();
+		}
 	}
 
 	public Array7x7(int[][] array) {
