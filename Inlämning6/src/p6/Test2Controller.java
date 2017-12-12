@@ -7,7 +7,7 @@ public class Test2Controller {
 	private Array7 rightColumn;
 
 	public Test2Controller() {
-		array = new Array7x7(Signs.X);
+		array = new Array7x7(Signs.getChar('X'));
 		leftColumn = array.getCol(0);
 		rightColumn = array.getCol(6);
 	}

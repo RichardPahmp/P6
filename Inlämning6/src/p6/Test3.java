@@ -21,9 +21,10 @@ public class Test3 {
 		
 		Array7x7 array = randomGrid();
 		display.setDisplay(array.toIntArray());
+		display.updateDisplay();
 		
 		while(true){
-			array.shiftRight();
+			array = randomGrid();
 			display.setDisplay(array.toIntArray());
 			try {
 				Thread.sleep(500);

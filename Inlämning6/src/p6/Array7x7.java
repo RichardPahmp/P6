@@ -90,4 +90,21 @@ public class Array7x7 {
 		
 		setCol(0, temp);
 	}
+	
+	public Array7x7 getColoredGrid(int col1, int col2){
+		Array7x7 res = new Array7x7(this);
+		for (int i = 0; i < 7; i++) {
+			for (int j = 0; j < 7; j++) {
+				if(res.getElement(i, j) == 0){
+					res.setElement(i, j, col1);
+				} else if(res.getElement(i, j) == 1){
+					res.setElement(i, j, col2);
+				} else {
+					//res.setElement(i, j, 0);
+					System.out.println("wow");
+				}
+			}
+		}
+		return res;
+	}
 }

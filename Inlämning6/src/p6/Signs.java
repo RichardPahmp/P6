@@ -2,7 +2,75 @@ package p6;
 
 public class Signs {
 	
-	public static final int[][] SPACE = {
+	private static Array7x7[] chars = new Array7x7[128];
+	
+	private static boolean generated = false;
+	
+	private static void generateList(){
+		for (int i = 0; i < chars.length; i++) {
+			chars[i] = new Array7x7(BLANK);
+		}
+		
+		chars['A'] = new Array7x7(A);
+		chars['B'] = new Array7x7(B);
+		chars['C'] = new Array7x7(C);
+		chars['D'] = new Array7x7(D);
+		chars['E'] = new Array7x7(E);
+		chars['F'] = new Array7x7(F);
+		chars['G'] = new Array7x7(G);
+		chars['H'] = new Array7x7(H);
+		chars['I'] = new Array7x7(I);
+		chars['J'] = new Array7x7(J);
+		chars['K'] = new Array7x7(K);
+		chars['L'] = new Array7x7(L);
+		chars['M'] = new Array7x7(M);
+		chars['N'] = new Array7x7(N);
+		chars['O'] = new Array7x7(O);
+		chars['P'] = new Array7x7(P);
+		chars['Q'] = new Array7x7(Q);
+		chars['R'] = new Array7x7(R);
+		chars['S'] = new Array7x7(S);
+		chars['T'] = new Array7x7(T);
+		chars['U'] = new Array7x7(U);
+		chars['V'] = new Array7x7(V);
+		chars['W'] = new Array7x7(W);
+		chars['X'] = new Array7x7(X);
+		chars['Y'] = new Array7x7(Y);
+		chars['Z'] = new Array7x7(X);
+		chars['0'] = new Array7x7(ZERO);
+		chars['1'] = new Array7x7(ONE);
+		chars['2'] = new Array7x7(TWO);
+		chars['3'] = new Array7x7(THREE);
+		chars['4'] = new Array7x7(FOUR);
+		chars['5'] = new Array7x7(FIVE);
+		chars['6'] = new Array7x7(SIX);
+		chars['7'] = new Array7x7(SEVEN);
+		chars['8'] = new Array7x7(EIGHT);
+		chars['9'] = new Array7x7(NINE);
+		chars[' '] = new Array7x7(SPACE);
+		chars['.'] = new Array7x7(DOT);
+		chars[','] = new Array7x7(COMMA);
+		chars[';'] = new Array7x7(SEMICOLON);
+		chars['!'] = new Array7x7(EXCLAMATION_MARK);
+		chars['?'] = new Array7x7(QUESTION_MARK);
+	}
+	
+	public static Array7x7 getChar(char c){
+		if(!generated){
+			generateList();
+		}
+		return new Array7x7(chars[c]);
+	}
+	
+	private static final int[][] BLANK = {
+			{1,1,1,1,1,1,1},
+			{1,1,1,1,1,1,1},
+			{1,1,1,1,1,1,1},
+			{1,1,1,1,1,1,1},
+			{1,1,1,1,1,1,1},
+			{1,1,1,1,1,1,1},
+			{1,1,1,1,1,1,1}};
+	private static final int[][] SPACE = {
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
@@ -10,7 +78,7 @@ public class Signs {
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0}};
-	public static final int[][] DOT = {
+	private static final int[][] DOT = {
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
@@ -18,7 +86,7 @@ public class Signs {
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
 			{0,0,0,1,0,0,0}};
-	public static final int[][] COMMA = {
+	private static final int[][] COMMA = {
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
@@ -26,7 +94,7 @@ public class Signs {
 			{0,0,0,0,0,0,0},
 			{0,0,0,1,0,0,0},
 			{0,0,1,0,0,0,0}};
-	public static final int[][] COLON = {
+	private static final int[][] COLON = {
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
@@ -34,7 +102,7 @@ public class Signs {
 			{0,0,0,0,0,0,0},
 			{0,0,0,1,0,0,0},
 			{0,0,0,0,0,0,0}};
-	public static final int[][] SEMICOLON = {
+	private static final int[][] SEMICOLON = {
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0},
@@ -42,7 +110,7 @@ public class Signs {
 			{0,0,0,0,0,0,0},
 			{0,0,0,1,0,0,0},
 			{0,0,1,0,0,0,0}};
-	public static final int[][] EXCLAMATION_MARK = {
+	private static final int[][] EXCLAMATION_MARK = {
 			{0,0,0,1,0,0,0},
 			{0,0,0,1,0,0,0},
 			{0,0,0,1,0,0,0},
@@ -50,7 +118,7 @@ public class Signs {
 			{0,0,0,1,0,0,0},
 			{0,0,0,0,0,0,0},
 			{0,0,0,1,0,0,0}};
-	public static final int[][] QUESTION_MARK = {
+	private static final int[][] QUESTION_MARK = {
 			{0,0,1,1,0,0,0},
 			{0,1,0,0,1,0,0},
 			{0,0,0,0,1,0,0},
@@ -58,7 +126,7 @@ public class Signs {
 			{0,0,0,1,0,0,0},
 			{0,0,0,0,0,0,0},
 			{0,0,0,1,0,0,0}};
-	public static final int[][] ZERO = {
+	private static final int[][] ZERO = {
 			{0,0,1,1,1,0,0},
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
@@ -66,7 +134,7 @@ public class Signs {
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
 			{0,0,1,1,1,0,0}};
-	public static final int[][] ONE = {
+	private static final int[][] ONE = {
 			{0,0,0,1,0,0,0},
 			{0,0,1,1,0,0,0},
 			{0,0,0,1,0,0,0},
@@ -74,7 +142,7 @@ public class Signs {
 			{0,0,0,1,0,0,0},
 			{0,0,0,1,0,0,0},
 			{0,0,1,1,1,0,0}};
-	public static final int[][] TWO ={
+	private static final int[][] TWO ={
 			{0,0,1,1,0,0,0},
 			{0,1,0,0,1,0,0},
 			{0,1,0,0,1,0,0},
@@ -82,7 +150,7 @@ public class Signs {
 			{0,0,0,1,0,0,0},
 			{0,0,1,0,0,0,0},
 			{0,1,1,1,1,1,0}};
-	public static final int[][] THREE = {
+	private static final int[][] THREE = {
 			{0,0,1,1,0,0,0},
 			{0,1,0,0,1,0,0},
 			{0,0,0,0,1,0,0},
@@ -90,7 +158,7 @@ public class Signs {
 			{0,0,0,0,1,0,0},
 			{0,1,0,0,1,0,0},
 			{0,0,1,1,0,0,0}};
-	public static final int[][] FOUR = {
+	private static final int[][] FOUR = {
 			{0,0,1,0,0,1,0},
 			{0,0,1,0,0,1,0},
 			{0,0,1,0,0,1,0},
@@ -98,7 +166,7 @@ public class Signs {
 			{0,0,0,0,0,1,0},
 			{0,0,0,0,0,1,0},
 			{0,0,0,0,0,1,0}};
-	public static final int[][] FIVE = {
+	private static final int[][] FIVE = {
 			{0,0,1,1,1,1,0},
 			{0,0,1,0,0,0,0},
 			{0,0,1,0,0,0,0},
@@ -106,7 +174,7 @@ public class Signs {
 			{0,0,0,0,0,1,0},
 			{0,0,0,0,0,1,0},
 			{0,0,1,1,1,0,0}};
-	public static final int[][] SIX = {
+	private static final int[][] SIX = {
 			{0,0,1,1,1,0,0},
 			{0,1,0,0,0,0,0},
 			{0,1,0,0,0,0,0},
@@ -114,7 +182,7 @@ public class Signs {
 			{0,1,0,0,1,0,0},
 			{0,1,0,0,1,0,0},
 			{0,0,1,1,0,0,0}};
-	public static final int[][] SEVEN = {
+	private static final int[][] SEVEN = {
 			{0,1,1,1,1,0,0},
 			{0,0,0,0,0,1,0},
 			{0,0,0,0,0,1,0},
@@ -122,7 +190,7 @@ public class Signs {
 			{0,0,0,0,0,1,0},
 			{0,0,0,0,0,1,0},
 			{0,0,0,0,0,1,0}};
-	public static final int[][] EIGHT = {
+	private static final int[][] EIGHT = {
 			{0,0,1,1,1,0,0},
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
@@ -130,7 +198,7 @@ public class Signs {
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
 			{0,0,1,1,1,0,0}};
-	public static final int[][] NINE = {
+	private static final int[][] NINE = {
 			{0,0,1,1,1,1,0},
 			{0,0,1,0,0,1,0},
 			{0,0,1,0,0,1,0},
@@ -138,7 +206,7 @@ public class Signs {
 			{0,0,0,0,0,1,0},
 			{0,0,0,0,0,1,0},
 			{0,0,0,0,0,1,0}};
-	public static final int[][] A = {
+	private static final int[][] A = {
 			{0,0,0,1,0,0,0},
 			{0,0,1,0,1,0,0},
 			{0,0,1,0,1,0,0},
@@ -146,7 +214,7 @@ public class Signs {
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0}};
-	public static final int[][] B = {
+	private static final int[][] B = {
 			{0,1,1,1,0,0,0},
 			{0,1,0,0,1,0,0},
 			{0,1,0,0,1,0,0},
@@ -154,7 +222,7 @@ public class Signs {
 			{0,1,0,0,1,0,0},
 			{0,1,0,0,1,0,0},
 			{0,1,1,1,0,0,0}};
-	public static final int[][] C = {
+	private static final int[][] C = {
 			{0,0,0,1,1,1,0},
 			{0,0,1,0,0,0,0},
 			{0,1,0,0,0,0,0},
@@ -162,7 +230,7 @@ public class Signs {
 			{0,1,0,0,0,0,0},
 			{0,0,1,0,0,0,0},
 			{0,0,0,1,1,1,0}};
-	public static final int[][] D = {
+	private static final int[][] D = {
 			{0,1,1,1,0,0,0},
 			{0,1,0,0,1,0,0},
 			{0,1,0,0,0,1,0},
@@ -170,7 +238,7 @@ public class Signs {
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,1,0,0},
 			{0,1,1,1,0,0,0}};
-	public static final int[][] E = {
+	private static final int[][] E = {
 			{0,1,1,1,1,0,0},
 			{0,1,0,0,0,0,0},
 			{0,1,0,0,0,0,0},
@@ -178,7 +246,7 @@ public class Signs {
 			{0,1,0,0,0,0,0},
 			{0,1,0,0,0,0,0},
 			{0,1,1,1,1,0,0}};
-	public static final int[][] F = {
+	private static final int[][] F = {
 			{0,0,1,1,1,1,0},
 			{0,0,1,0,0,0,0},
 			{0,0,1,0,0,0,0},
@@ -186,7 +254,7 @@ public class Signs {
 			{0,0,1,0,0,0,0},
 			{0,0,1,0,0,0,0},
 			{0,0,1,0,0,0,0}};
-	public static final int[][] G = {
+	private static final int[][] G = {
 			{0,0,1,1,1,0,0},
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,0,0},
@@ -194,7 +262,7 @@ public class Signs {
 			{0,1,0,1,1,1,0},
 			{0,1,0,0,0,1,0},
 			{0,0,1,1,1,0,0}};
-	public static final int[][] H = {
+	private static final int[][] H = {
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
@@ -202,7 +270,7 @@ public class Signs {
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0}};
-	public static final int[][] I = {
+	private static final int[][] I = {
 			{0,0,1,1,1,0,0},
 			{0,0,0,1,0,0,0},
 			{0,0,0,1,0,0,0},
@@ -210,7 +278,7 @@ public class Signs {
 			{0,0,0,1,0,0,0},
 			{0,0,0,1,0,0,0},
 			{0,0,1,1,1,0,0}};
-	public static final int[][] J = {
+	private static final int[][] J = {
 			{0,0,1,1,1,1,0},
 			{0,0,0,0,1,0,0},
 			{0,0,0,0,1,0,0},
@@ -218,7 +286,7 @@ public class Signs {
 			{0,1,0,0,1,0,0},
 			{0,1,0,0,1,0,0},
 			{0,0,1,1,1,0,0}};
-	public static final int[][] K = {
+	private static final int[][] K = {
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,1,0,0},
 			{0,1,0,1,0,0,0},
@@ -226,7 +294,7 @@ public class Signs {
 			{0,1,0,1,0,0,0},
 			{0,1,0,0,1,0,0},
 			{0,1,0,0,0,1,0}};
-	public static final int[][] L = {
+	private static final int[][] L = {
 			{0,1,0,0,0,0,0},
 			{0,1,0,0,0,0,0},
 			{0,1,0,0,0,0,0},
@@ -234,7 +302,7 @@ public class Signs {
 			{0,1,0,0,0,0,0},
 			{0,1,0,0,0,0,0},
 			{0,1,1,1,1,0,0}};
-	public static final int[][] M = {
+	private static final int[][] M = {
 			{1,0,0,0,0,0,1},
 			{1,1,0,0,0,1,1},
 			{1,0,1,0,1,0,1},
@@ -242,7 +310,7 @@ public class Signs {
 			{1,0,0,0,0,0,1},
 			{1,0,0,0,0,0,1},
 			{1,0,0,0,0,0,1}};
-	public static final int[][] N = {
+	private static final int[][] N = {
 			{1,0,0,0,0,0,1},
 			{1,1,0,0,0,0,1},
 			{1,0,1,0,0,0,1},
@@ -250,7 +318,7 @@ public class Signs {
 			{1,0,0,0,1,0,1},
 			{1,0,0,0,0,1,1},
 			{1,0,0,0,0,0,1}};
-	public static final int[][] O = {
+	private static final int[][] O = {
 			{0,0,1,1,1,0,0},
 			{0,1,0,0,0,1,0},
 			{1,0,0,0,0,0,1},
@@ -258,7 +326,7 @@ public class Signs {
 			{1,0,0,0,0,0,1},
 			{0,1,0,0,0,1,0},
 			{0,0,1,1,1,0,0}};
-	public static final int[][] P = {
+	private static final int[][] P = {
 			{0,1,1,1,1,0,0},
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
@@ -266,7 +334,7 @@ public class Signs {
 			{0,1,0,0,0,0,0},
 			{0,1,0,0,0,0,0},
 			{0,1,0,0,0,0,0}};
-	public static final int[][] Q = {
+	private static final int[][] Q = {
 			{0,0,1,1,1,0,0},
 			{0,1,0,0,0,1,0},
 			{1,0,0,0,0,0,1},
@@ -274,7 +342,7 @@ public class Signs {
 			{1,0,0,0,1,0,1},
 			{0,1,0,0,0,1,0},
 			{0,0,1,1,1,0,1}};
-	public static final int[][] R = {
+	private static final int[][] R = {
 			{0,1,1,1,0,0,0},
 			{0,1,0,0,1,0,0},
 			{0,1,0,0,1,0,0},
@@ -282,7 +350,7 @@ public class Signs {
 			{0,1,0,1,0,0,0},
 			{0,1,0,0,1,0,0},
 			{0,1,0,0,0,1,0}};
-	public static final int[][] S = {
+	private static final int[][] S = {
 			{0,0,0,1,1,0,0},
 			{0,0,1,0,0,1,0},
 			{0,0,1,0,0,0,0},
@@ -290,7 +358,7 @@ public class Signs {
 			{0,0,0,0,0,1,0},
 			{0,0,1,0,0,1,0},
 			{0,0,0,1,1,0,0}};
-	public static final int[][] T = {
+	private static final int[][] T = {
 			{0,1,1,1,1,1,0},
 			{0,0,0,1,0,0,0},
 			{0,0,0,1,0,0,0},
@@ -298,7 +366,7 @@ public class Signs {
 			{0,0,0,1,0,0,0},
 			{0,0,0,1,0,0,0},
 			{0,0,0,1,0,0,0}};
-	public static final int[][] U = {
+	private static final int[][] U = {
 			{1,0,0,0,0,0,1},
 			{1,0,0,0,0,0,1},
 			{1,0,0,0,0,0,1},
@@ -306,7 +374,7 @@ public class Signs {
 			{1,0,0,0,0,0,1},
 			{0,1,0,0,0,1,0},
 			{0,0,1,1,1,0,0}};
-	public static final int[][] V = {
+	private static final int[][] V = {
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
@@ -314,7 +382,7 @@ public class Signs {
 			{0,1,0,0,0,1,0},
 			{0,0,1,0,1,0,0},
 			{0,0,0,1,0,0,0}};
-	public static final int[][] W = {
+	private static final int[][] W = {
 			{1,0,0,0,0,0,1},
 			{1,0,0,0,0,0,1},
 			{1,0,0,0,0,0,1},
@@ -322,7 +390,7 @@ public class Signs {
 			{1,0,0,1,0,0,1},
 			{0,1,0,1,0,1,0},
 			{0,0,1,0,1,0,0}};
-	public static final int[][] X = {
+	private static final int[][] X = {
 			{1,0,0,0,0,0,1},
 			{0,1,0,0,0,1,0},
 			{0,0,1,0,1,0,0},
@@ -330,7 +398,7 @@ public class Signs {
 			{0,0,1,0,1,0,0},
 			{0,1,0,0,0,1,0},
 			{1,0,0,0,0,0,1}};
-	public static final int[][] Y = {
+	private static final int[][] Y = {
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
 			{0,1,0,0,0,1,0},
@@ -338,7 +406,7 @@ public class Signs {
 			{0,0,0,1,0,0,0},
 			{0,0,0,1,0,0,0},
 			{0,0,0,1,0,0,0}};
-	public static final int[][] Z = {
+	private static final int[][] Z = {
 			{0,1,1,1,1,1,0},
 			{0,0,0,0,0,1,0},
 			{0,0,0,0,1,0,0},
