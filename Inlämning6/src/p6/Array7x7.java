@@ -111,6 +111,12 @@ public class Array7x7 {
 		return res;
 	}
 	
+	public void resetCol(int col) {
+		for (int i = 0; i < array7.length; i++) {
+			array7[i].setElement(col, 0);
+		}
+	}
+	
 	public String toString(){
 		String res = "";
 		for (int i = 0; i < 7; i++) {

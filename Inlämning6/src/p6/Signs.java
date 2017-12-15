@@ -62,10 +62,14 @@ public class Signs {
 		if(!generated){
 			generateList();
 		}
-		return new Array7x7(chars[c]);
+		if(c < chars.length) {
+			return new Array7x7(chars[c]);
+		} else {
+			return new Array7x7(BLANK);
+		}
 	}
 	
-	private static final int[][] BLANK = {
+	public static final int[][] BLANK = {
 			{1,1,1,1,1,1,1},
 			{1,1,1,1,1,1,1},
 			{1,1,1,1,1,1,1},
