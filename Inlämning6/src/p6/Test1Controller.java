@@ -2,7 +2,6 @@ package p6;
 
 public class Test1Controller {
 	private Array7x7 array;
-	private Test1UI ui;
 	private Array7 leftColumn;
 	private Array7 bottomRow;
 
@@ -18,10 +17,6 @@ public class Test1Controller {
 
 	public void setBottomRow(int row) {
 		this.bottomRow = array.getRow(row);
-	}
-
-	public void setUI(Test1UI ui) {
-		this.ui = ui;
 	}
 
 	public Array7 getLeftColumn() {
