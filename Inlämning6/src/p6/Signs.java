@@ -2,7 +2,7 @@ package p6;
 
 public class Signs {
 	
-	private static Array7x7[] chars = new Array7x7[128];
+	private static Array7x7[] chars = new Array7x7[154];
 	
 	private static boolean generated = false;
 	
@@ -12,31 +12,57 @@ public class Signs {
 		}
 		
 		chars['A'] = new Array7x7(A);
+		chars['a'] = new Array7x7(A);
 		chars['B'] = new Array7x7(B);
+		chars['b'] = new Array7x7(B);
 		chars['C'] = new Array7x7(C);
+		chars['c'] = new Array7x7(C);
 		chars['D'] = new Array7x7(D);
+		chars['d'] = new Array7x7(D);
 		chars['E'] = new Array7x7(E);
+		chars['e'] = new Array7x7(E);
 		chars['F'] = new Array7x7(F);
+		chars['f'] = new Array7x7(F);
 		chars['G'] = new Array7x7(G);
+		chars['g'] = new Array7x7(G);
 		chars['H'] = new Array7x7(H);
+		chars['h'] = new Array7x7(H);
 		chars['I'] = new Array7x7(I);
+		chars['i'] = new Array7x7(I);
 		chars['J'] = new Array7x7(J);
+		chars['j'] = new Array7x7(J);
 		chars['K'] = new Array7x7(K);
+		chars['k'] = new Array7x7(K);
 		chars['L'] = new Array7x7(L);
+		chars['l'] = new Array7x7(L);
 		chars['M'] = new Array7x7(M);
+		chars['m'] = new Array7x7(M);
 		chars['N'] = new Array7x7(N);
+		chars['n'] = new Array7x7(N);
 		chars['O'] = new Array7x7(O);
+		chars['o'] = new Array7x7(O);
 		chars['P'] = new Array7x7(P);
+		chars['p'] = new Array7x7(P);
 		chars['Q'] = new Array7x7(Q);
+		chars['q'] = new Array7x7(Q);
 		chars['R'] = new Array7x7(R);
+		chars['r'] = new Array7x7(R);
 		chars['S'] = new Array7x7(S);
+		chars['s'] = new Array7x7(S);
 		chars['T'] = new Array7x7(T);
+		chars['t'] = new Array7x7(T);
 		chars['U'] = new Array7x7(U);
+		chars['u'] = new Array7x7(U);
 		chars['V'] = new Array7x7(V);
+		chars['v'] = new Array7x7(V);
 		chars['W'] = new Array7x7(W);
+		chars['w'] = new Array7x7(W);
 		chars['X'] = new Array7x7(X);
+		chars['x'] = new Array7x7(X);
 		chars['Y'] = new Array7x7(Y);
-		chars['Z'] = new Array7x7(X);
+		chars['y'] = new Array7x7(Y);
+		chars['Z'] = new Array7x7(Z);
+		chars['z'] = new Array7x7(Z);
 		chars['0'] = new Array7x7(ZERO);
 		chars['1'] = new Array7x7(ONE);
 		chars['2'] = new Array7x7(TWO);
