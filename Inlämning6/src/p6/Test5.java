@@ -10,6 +10,9 @@ import javax.swing.JPanel;
 
 public class Test5 {
 	
+	/**
+	 * Variables for colors, JFrame, JPanel, ColorDisplay and more.
+	 */
 	private static final int backgroundColor = Color.RED;
 	private static final int textColor = Color.BLACK;
 	
@@ -71,6 +74,7 @@ public class Test5 {
 	
 	/**
 	 * Updates the display. Makes the letters in the display go left. 
+	 * When letters reach left side they "disappear". 
 	 */
 	
 	private void update() {
@@ -93,7 +97,7 @@ public class Test5 {
 	}
 	
 	/** 
-	 * 
+	 * Main method.
 	 * @param args - public static void main string args
 	 */
 	public static void main(String[] args) {
