@@ -16,7 +16,7 @@ public class Test5Controller {
 	/**
 	 * The delay between every update in milliseconds
 	 */
-	private static final int DELAY = 10;
+	private static final int DELAY = 150;
 
 	private int counter = 0;
 	private int tiles = 5;
