@@ -7,6 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Test3 {
+	/**
+	 * Main method that writes everything in the window.
+	 * ColorDisplay sets up the display.
+	 * The while loop moves the display to the left(whatever we chooses it to do) and 
+	 * tries to catch an exception if one occurs.  
+	 * @param args public static void main (don't know why we have args).
+	 */
 	
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
@@ -34,6 +41,12 @@ public class Test3 {
 			display.updateDisplay();
 		}
 	}
+	
+	/**
+	 * This Class creates a random generator and we use it to get different 
+	 * colors in the display. We randomize all the RGB colors. 
+	 * @return returns a 7x7array with the colors(?)
+	 */
 	
 	public static Array7x7 randomGrid(){
 		Array7x7 grid = new Array7x7();
