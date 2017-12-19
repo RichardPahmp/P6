@@ -7,6 +7,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Test4 {
+	
+	/**
+	 * Main method.
+	 * Creates a JFrame, JPanel & ColorDisplay.
+	 * Adds panel & colordisplay into frame.
+	 * Shows a 7x7 grid and input-box.
+	 * While char is inserted as input - updates 7x7 grid
+	 * and shows the char in the grid.
+	 * @param args 
+	 */
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
