@@ -25,6 +25,12 @@ public class Test5 {
 	
 	private Timer timer;
 	
+	/**
+	 * Draws up all the frames. Input to let one write something. 
+	 * Array7x7 is a "new Array7x7". 
+	 * For Loop that sets the color (?). 
+	 * Timer creates a new timer. 
+	 */
 	private void program() {
 		frame = new JFrame();
 		panel = new JPanel();
@@ -62,6 +68,10 @@ public class Test5 {
 		
 		
 	}
+	
+	/**
+	 * Updates the display. Makes the letters in the display go left. 
+	 */
 	
 	private void update() {
 		for (int i = 0; i < tiles; i++) {
