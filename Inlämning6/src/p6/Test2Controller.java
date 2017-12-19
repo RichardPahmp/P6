@@ -2,9 +2,14 @@ package p6;
 
 public class Test2Controller {
 	private Array7x7 array;
-	private Test1UI ui;
 	private Array7 leftColumn;
 	private Array7 rightColumn;
+	
+	/**
+	 * Constructor, sets the sign in the window.
+	 * leftColumn is the first column in the index, starts at 0.
+	 * rightColumn is the last column in the index, ends at 6
+	 */
 
 	public Test2Controller() {
 		array = new Array7x7(Signs.getChar('X'));
@@ -20,10 +25,6 @@ public class Test2Controller {
 		this.rightColumn = array.getCol(col);
 	}
 
-	public void setUI(Test1UI ui) {
-		this.ui = ui;
-	}
-
 	public Array7 getLeftColumn() {
 		return leftColumn;
 	}
@@ -35,6 +36,11 @@ public class Test2Controller {
 	public Array7x7 getArray() {
 		return array;
 	}
+	
+	/**
+	 * Moves the array to the left. Creating a tempArray that holds the value that is about to be moved(?). 
+	 * Then puts the tempValue into the left Column. 
+	 */
 
 	public void moveLeft() {
 		Array7 temp = rightColumn.getArray();
@@ -43,6 +49,11 @@ public class Test2Controller {
 		array.shiftLeft();
 		array.setCol(6, temp);
 	}
+	
+	/**
+	 * Moves the array to the right. Creating a tempArray that holds the value that is about to be moved(?).
+	 * Then puts the tempValue into the right Column
+	 */
 
 	public void moveRight() {
 		Array7 temp = leftColumn.getArray();
