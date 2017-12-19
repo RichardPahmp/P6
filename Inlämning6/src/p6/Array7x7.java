@@ -27,28 +27,66 @@ public class Array7x7 {
 	public Array7x7(Array7x7 array) {
 		setArray(array.toIntArray());
 	}
+	
+	/**
+	 * Sets the value in a specific row and col.
+	 * @param row which row its in.
+	 * @param col which col its in.
+	 * @param value what the value is. 
+	 */
 
 	public void setElement(int row, int col, int value) {
 		array7[row].setElement(col, value);
 	}
+	
+	/**
+	 * Gets the element on the 2D Array.
+	 * @param row which row.
+	 * @param col which column. 
+	 * @return returns the Element. 
+	 */
 
 	public int getElement(int row, int col) {
 		return array7[row].getElement(col);
 	}
+	
+	/**
+	 * Sets the row in Array7x7.
+	 * @param row the row that gets its value from "theRow"
+	 * @param theRow the row with a value. 
+	 */
 
 	public void setRow(int row, Array7 theRow) {
 		array7[row] = theRow;
 	}
+	
+	/**
+	 * Getter for the row. 
+	 * @param row The row that we get.
+	 * @return Returns the row we call. 
+	 */
 
 	public Array7 getRow(int row) {
 		return array7[row];
 	}
+	
+	/**
+	 * Sets up the Column using a for Loop. 
+	 * @param col which column. 
+	 * @param theCol The element that gets set in "setCol".
+	 */
 
 	public void setCol(int col, Array7 theCol) {
 		for (int i = 0; i < array7.length; i++) {
 			array7[i].setElement(col, theCol.getElement((i)));
 		}
 	}
+	
+	/**
+	 * Getter for the Column. Using a tempArray that holds the value from COL.(?) 
+	 * @param col which column we want. 
+	 * @return returns a new Array7 with the tempArray values. 
+	 */
 
 	public Array7 getCol(int col) {
 		int[] tempCol = new int[array7.length];
@@ -59,12 +97,22 @@ public class Array7x7 {
 
 		return new Array7(tempCol);
 	}
+	
+	/**
+	 * Sets up the Array7x7 with the "new array7x7"
+	 * @param array7x7
+	 */
 
 	public void setArray(Array7x7 array7x7) {
 		for (int i = 0; i < 7; i++) {
 			array7[i] = new Array7(array7x7.array7[i]);
 		}
 	}
+	
+	/**
+	 * Sets up the Array7 with a Loop. Values in "array" gets put into "Array7"
+	 * @param array array the values(?). 
+	 */
 
 	public void setArray(int[][] array) {
 		for (int i = 0; i < array7.length; i++) {
