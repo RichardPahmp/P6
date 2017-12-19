@@ -67,7 +67,7 @@ public class Test5 {
 			public void run() {
 				update();
 			}
-		}, 0, 500);
+		}, 0, 250);
 		
 		
 	}
