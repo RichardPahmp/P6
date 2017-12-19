@@ -8,31 +8,45 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Test1UI extends JPanel {
+
+	/** 
+	 * Variables for Controller, JTextFields, JButtons, Font & a ButtonListener
+	 */
 	private Test1Controller controller;
 	private JTextField colTextField, rowTextField;
 	private JButton rowReadBtn, rowWriteBtn, colReadBtn, colWriteBtn;
 	Font lblFont = new Font("ComicSans", Font.BOLD, 16);
+	private ButtonListener bl = new ButtonListener();
 
-	// 7x7 rutnätet och raden/kolumnen. Ligger i West i huvudpanelen.
+	
+	/**
+	 * viewPanel - 7x7 grid & row/column
+	 * controlPanel - Panel for buttons & input 
+	 * centerLabels - Panel for 7x7 grid with labels
+	 * westLabels - Panel for 7x1 grid for left column
+	 * southLabels - Panel for row with JTextFields
+	 * eastLabels - Panel for choice of row/column & read/write
+	 * west & southTextFields - JTextFields that are located to the left & under the 7x7 grid
+	 */
+	
 	private JPanel viewPanel = new JPanel();
-
-	// panel för knappar och inmatningsfält
 	private JPanel controlPanel = new JPanel();
-
-	// Panel för 7x7 rutnätet med labels
 	private JPanel centerLabels = new JPanel();
-	// Panel är 7x1 rutnätet för en kolumn (vänster)
 	private JPanel westLabels = new JPanel();
-	// Panel för raden med JTextFields
 	private JPanel southLabels = new JPanel();
-	//Panel för val av rad/kol nr och läs/skriv
 	private JPanel eastLabels = new JPanel();
-
 	private JTextField[] westTextFields = new JTextField[7];
 	private JTextField[] southTextFields = new JTextField[7];
 
-	private ButtonListener bl = new ButtonListener();
 
+	
+	/**
+	 * Controls the class.
+	 * Sets sizes, layouts and puts panels in panels.
+	 * Calls methods for updating the panels.
+	 * @param controller
+	 */
+	
 	public Test1UI(Test1Controller controller) {
 		this.controller = controller;
 		setPreferredSize(new Dimension(800, 500));
@@ -51,21 +65,27 @@ public class Test1UI extends JPanel {
 		updateCenter();
 	}
 
+	
+	/**
+	 * Updates the east panel. 
+	 * Sets button/labels/TextFields texts, sizes and adds them into panels.
+	 */
+	
 	private void updateEast() {
 		eastLabels.setLayout(new BorderLayout());
 
 		JPanel rowPanel = new JPanel();
-		rowPanel.setPreferredSize(new Dimension(150,120));
+		rowPanel.setPreferredSize(new Dimension(150, 120));
 		JPanel colPanel = new JPanel();
-		colPanel.setPreferredSize(new Dimension(150,40));
+		colPanel.setPreferredSize(new Dimension(150, 40));
 
-		Dimension lblDim = new Dimension(70,30);
-		Dimension btnDim = new Dimension(145,30);
-		
+		Dimension lblDim = new Dimension(70, 30);
+		Dimension btnDim = new Dimension(145, 30);
+
 		JLabel rowLbl = new JLabel("Rad nr: ");
 		rowLbl.setPreferredSize(lblDim);
 		rowLbl.setHorizontalAlignment(SwingConstants.LEFT);
-		rowTextField = new JTextField("6");
+		rowTextField = new JTextField("0");
 		rowTextField.setPreferredSize(lblDim);
 
 		rowReadBtn = new JButton("Läs rad");
@@ -104,6 +124,9 @@ public class Test1UI extends JPanel {
 		controlPanel.add(eastLabels, BorderLayout.EAST);
 	}
 
+	/**
+	 * Updates the west panel. 
+	 */
 	private void updateWest() {
 		westLabels.removeAll();
 		westLabels.setLayout(new GridLayout(7, 1, 5, 0));
@@ -133,6 +156,11 @@ public class Test1UI extends JPanel {
 		viewPanel.revalidate();
 	}
 
+	/**
+	 * Updates the center panel.
+	 * Makes a 7x7 grid of labels,
+	 * sets foreground, background & font.
+	 */
 	private void updateCenter() {
 		centerLabels.removeAll();
 		centerLabels.setLayout(new GridLayout(7, 7, 5, 5));
@@ -156,8 +184,13 @@ public class Test1UI extends JPanel {
 		viewPanel.revalidate();
 	}
 
+	
+	/**
+	 * Buttonlistener.
+	 * Listens for and registers actions by the user,
+	 * updates different panels depending on input by the user. 
+	 */
 	private class ButtonListener implements ActionListener {
-		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource().equals(rowReadBtn)) {
 				controller.setBottomRow(Integer.parseInt(rowTextField.getText()));
@@ -186,10 +219,14 @@ public class Test1UI extends JPanel {
 		}
 	}
 
+	/**
+	 * Main method.
+	 * @param args - main method
+	 */
 	public static void main(String[] args) {
 		Test1Controller control = new Test1Controller();
 		Test1UI test = new Test1UI(control);
-		
+
 		JFrame frame1 = new JFrame("TEST 1");
 		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame1.add(test);
