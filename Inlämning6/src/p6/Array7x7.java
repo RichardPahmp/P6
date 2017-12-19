@@ -50,7 +50,6 @@ public class Array7x7 {
 	}
 
 	public void setArray(Array7x7 array7x7) {
-//		this.array7 = array7x7.array7;
 		for (int i = 0; i < 7; i++) {
 			array7[i] = new Array7(array7x7.array7[i]);
 		}
@@ -62,10 +61,19 @@ public class Array7x7 {
 		}
 	}
 
+	/**
+	 * Returns a copy of this Array7x7 object. 
+	 * @return Copy of this Array7x7 object. 
+	 */
 	public Array7x7 getArray() {
-		return this;
+		Array7x7 temp = new Array7x7(this);
+		return temp;
 	}
 
+	/**
+	 * Returns this Array7x7 as a 2 dimensional int array. 
+	 * @return Int array representation of this Array7x7. 
+	 */
 	public int[][] toIntArray() {
 		int[][] tempArray = new int[7][7];
 		for (int i = 0; i < tempArray.length; i++) {
@@ -73,7 +81,10 @@ public class Array7x7 {
 		}
 		return tempArray;
 	}
-
+	
+	/**
+	 * Shifts every column to the left. 
+	 */
 	public void shiftLeft() {
 		Array7 temp = getCol(0);
 
@@ -84,6 +95,9 @@ public class Array7x7 {
 		setCol(6, temp);
 	}
 
+	/**
+	 * Shifts every column to the right. 
+	 */
 	public void shiftRight() {
 		Array7 temp = getCol(6);
 		
@@ -111,12 +125,20 @@ public class Array7x7 {
 		return res;
 	}
 	
+	/**
+	 * Sets the column at the index col to all 0. 
+	 * @param col The col to be reset.
+	 */
 	public void resetCol(int col) {
 		for (int i = 0; i < array7.length; i++) {
 			array7[i].setElement(col, 0);
 		}
 	}
 	
+	/**
+	 * Returns a string representation of this object.
+	 * @return String representation of this 2 dimensional array.
+	 */
 	public String toString(){
 		String res = "";
 		for (int i = 0; i < 7; i++) {
