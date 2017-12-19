@@ -19,6 +19,12 @@ public class Test2UI extends JPanel {
 	
 	private ButtonListener bl = new ButtonListener();
 	
+	/**
+	 * Test2Controller does all the "math". 
+	 * Constructor updates the UI with the methods in this class. 
+	 * @param controller controller does all the calculations aka all the internal work(?).
+	 */
+	
 	public Test2UI(Test2Controller controller ) {
 		this.controller = controller;
 		setPreferredSize(new Dimension(800,400));
@@ -36,6 +42,10 @@ public class Test2UI extends JPanel {
 		setupSouth();
 	}
 	
+	/**
+	 * Updates West Column 
+	 */
+	
 	public void updateWest() {
 		westFields.removeAll();
 		westFields.setLayout(new GridLayout(7, 1, 10, 10));
@@ -48,6 +58,10 @@ public class Test2UI extends JPanel {
 		}
 		westFields.revalidate();
 	}
+	
+	/**
+	 * Updates Center board 
+	 */
 	
 	public void updateCenter() {
 		centerLabels.removeAll();
@@ -68,6 +82,10 @@ public class Test2UI extends JPanel {
 		centerLabels.revalidate();
 	}
 	
+	/**
+	 * Updates East Column
+	 */
+	
 	public void updateEast() {
 		eastFields.removeAll();
 		eastFields.setLayout(new GridLayout(7,1, 10, 10));
@@ -81,6 +99,10 @@ public class Test2UI extends JPanel {
 		eastFields.revalidate();
 	}
 	
+	/**
+	 * Sets up the buttons in South
+	 */
+	
 	public void setupSouth() {
 		southBtns.removeAll();
 		southBtns.setLayout(new GridLayout(1,2, 20, 20));
@@ -92,6 +114,10 @@ public class Test2UI extends JPanel {
 		southBtns.add(moveRightBtn);
 		southBtns.revalidate();
 	}
+	
+	/**
+	 *  Inner Class that listens to the buttons 
+	 */
 	
 	private class ButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
