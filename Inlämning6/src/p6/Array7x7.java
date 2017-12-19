@@ -2,17 +2,28 @@ package p6;
 
 public class Array7x7 {
 	private Array7[] array7 = new Array7[7];
-
+	
+	/**
+	 * Sets up an Array7x7 object filled with 0. 
+	 */
 	public Array7x7() {
 		for (int i = 0; i < array7.length; i++) {
 			array7[i] = new Array7();
 		}
 	}
 
+	/**
+	 * Sets up an Array7x7 object matching the given 2D int array. 
+	 * @param array The array to be matched. 
+	 */
 	public Array7x7(int[][] array) {
 		setArray(array);
 	}
 
+	/**
+	 * Sets up an Array7x7 object matching the given Array7x7. 
+	 * @param array The Array7x7 to be matched. 
+	 */
 	public Array7x7(Array7x7 array) {
 		setArray(array.toIntArray());
 	}
