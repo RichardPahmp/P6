@@ -92,6 +92,10 @@ public class Test5 {
 		}
 	}
 	
+	/** 
+	 * 
+	 * @param args - public static void main string args
+	 */
 	public static void main(String[] args) {
 		Test5 t5 = new Test5();
 		t5.program();
