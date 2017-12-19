@@ -8,40 +8,50 @@ public class Array7 {
 			array[i] = 0;
 		}
 	}
-	
+
 	public Array7(Array7 array7){
-		//this.array = array7.array;
 		for (int i = 0; i < array.length; i++) {
 			this.array[i] = array7.array[i];
 		}
 	}
-	
+
 	public Array7(int[] array){
-		for (int i = 0; i < array.length; i++) {
-			this.array[i] = array[i];
-		}
+		setArray(array);
 	}
-	
+
 	public void setElement(int pos, int value){
 		array[pos] = value;
 	}
-	
+
 	public int getElement(int pos){
 		return array[pos];
 	}
-	
+
 	public void setArray(Array7 array7){
-		this.array = array7.array;
+		for (int i = 0; i < array.length; i++) {
+			array[i] = array7.getElement(i);
+		}
 	}
-	
+
 	public void setArray(int[] array){
-		this.array = array;
+		int min = Math.min(array.length, this.array.length);
+		boolean thisArrayBiggest = (this.array.length > array.length);
+
+		for (int i = 0; i < min; i++) {
+			this.array[i] = array[i];
+		}
+
+		if (thisArrayBiggest) {
+			for (int i = min+1; i < this.array.length; i++) {
+				this.array[i] = 0;
+			}
+		}
 	}
-	
+
 	public Array7 getArray(){
 		return new Array7(this);
 	}
-	
+
 	public int[] toIntArray(){
 		return array;
 	}

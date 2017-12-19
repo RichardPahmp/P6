@@ -24,7 +24,7 @@ public class Test3 {
 		display.updateDisplay();
 		
 		while(true){
-			array = randomGrid();
+			array.shiftLeft();
 			display.setDisplay(array.toIntArray());
 			try {
 				Thread.sleep(500);
