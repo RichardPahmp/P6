@@ -19,10 +19,10 @@ public class Test4 {
 		frame.pack();
 		
 		while(true){
-			String res = JOptionPane.showInputDialog("Skriv en bokstav");
+			String res = JOptionPane.showInputDialog("Skriv en bokstav, siffra, eller ett tecken");
 			char c = res.charAt(0);
 			Array7x7 array = Signs.getChar(c);
-			display.setDisplay(array.getColoredGrid(Color.RED, Color.BLUE).toIntArray());
+			display.setDisplay(array.getColoredGrid(Color.CYAN, Color.BLUE).toIntArray());
 			display.updateDisplay();
 		}
 	}
