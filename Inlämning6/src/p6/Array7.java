@@ -16,18 +16,7 @@ public class Array7 {
 	}
 
 	public Array7(int[] array){
-		int min = Math.min(array.length, this.array.length);
-		boolean thisArrayBiggest = (this.array.length > array.length);
-
-		for (int i = 0; i < min; i++) {
-			this.array[i] = array[i];
-		}
-
-		if (thisArrayBiggest) {
-			for (int i = min+1; i < this.array.length; i++) {
-				this.array[i] = 0;
-			}
-		}
+		setArray(array);
 	}
 
 	public void setElement(int pos, int value){
