@@ -29,18 +29,17 @@ public class Array7x7 {
 	}
 	
 	/**
-	 * Sets the value in a specific row and col.
-	 * @param row which row its in.
-	 * @param col which col its in.
+	 * Sets the value in a specific position.
+	 * @param row which row it's in.
+	 * @param col which column it's in.
 	 * @param value what the value is. 
 	 */
-
 	public void setElement(int row, int col, int value) {
 		array7[row].setElement(col, value);
 	}
 	
 	/**
-	 * Gets the element on the 2D Array.
+	 * Gets the specified element of the 2D Array.
 	 * @param row which row.
 	 * @param col which column. 
 	 * @return returns the Element. 
@@ -53,7 +52,7 @@ public class Array7x7 {
 	/**
 	 * Sets the row in Array7x7.
 	 * @param row the row that gets its value from "theRow"
-	 * @param theRow the row with a value. 
+	 * @param theRow the row with new values. 
 	 */
 
 	public void setRow(int row, Array7 theRow) {
@@ -61,11 +60,10 @@ public class Array7x7 {
 	}
 	
 	/**
-	 * Getter for the row. 
+	 * Getter for rows. 
 	 * @param row The row that we get.
-	 * @return Returns the row we call. 
+	 * @return Returns the specified row. 
 	 */
-
 	public Array7 getRow(int row) {
 		return array7[row];
 	}
@@ -75,7 +73,6 @@ public class Array7x7 {
 	 * @param col which column. 
 	 * @param theCol The element that gets set in "setCol".
 	 */
-
 	public void setCol(int col, Array7 theCol) {
 		for (int i = 0; i < array7.length; i++) {
 			array7[i].setElement(col, theCol.getElement((i)));
@@ -83,11 +80,10 @@ public class Array7x7 {
 	}
 	
 	/**
-	 * Getter for the Column. Using a tempArray that holds the value from COL.(?) 
+	 * Getter for columns. 
 	 * @param col which column we want. 
-	 * @return returns a new Array7 with the tempArray values. 
+	 * @return returns a new Array7 representing the specified column. 
 	 */
-
 	public Array7 getCol(int col) {
 		int[] tempCol = new int[array7.length];
 
