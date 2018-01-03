@@ -16,9 +16,6 @@ public class Test5UI {
 	
 	/**
 	 * Draws up all the frames. Input to let one write something. 
-	 * Array7x7 is a "new Array7x7". 
-	 * For Loop that sets the color (?). 
-	 * Timer creates a new timer. 
 	 */
 	public Test5UI() {
 		frame = new JFrame();
