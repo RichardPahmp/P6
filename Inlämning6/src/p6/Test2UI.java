@@ -22,7 +22,7 @@ public class Test2UI extends JPanel {
 	/**
 	 * Test2Controller does all the "math". 
 	 * Constructor updates the UI with the methods in this class. 
-	 * @param controller controller does all the calculations aka all the internal work(?).
+	 * @param controller controller does all the internal calculations.
 	 */
 	
 	public Test2UI(Test2Controller controller ) {
