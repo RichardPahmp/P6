@@ -163,14 +163,21 @@ public class Array7x7 {
 		setCol(0, temp);
 	}
 	
-	public Array7x7 getColoredGrid(int col1, int col2){
+	/**
+	 * ??????
+	 * @param color1
+	 * @param color2
+	 * @return
+	 */
+	
+	public Array7x7 getColoredGrid(int color1, int color2){ //
 		Array7x7 res = new Array7x7(this);
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 7; j++) {
 				if(res.getElement(i, j) == 0){
-					res.setElement(i, j, col1);
+					res.setElement(i, j, color1);
 				} else if(res.getElement(i, j) == 1){
-					res.setElement(i, j, col2);
+					res.setElement(i, j, color2);
 				} else {
 					//res.setElement(i, j, 0);
 					//System.out.println(res.getElement(i, j));
