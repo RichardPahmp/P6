@@ -104,6 +104,7 @@ public class Test5Controller {
 			timer.cancel();
 			//run restart to let the user input another message
 			restart();
+			run();
 		}
 	}
 
