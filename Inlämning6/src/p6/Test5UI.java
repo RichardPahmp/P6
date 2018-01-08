@@ -15,7 +15,7 @@ public class Test5UI {
 	private ColorDisplay display;
 	
 	/**
-	 * Draws up all the frames. Input to let one write something. 
+	 * Initialize the window and colorDisplay
 	 */
 	public Test5UI() {
 		frame = new JFrame();
@@ -29,11 +29,9 @@ public class Test5UI {
 		frame.pack();
 	}
 	
-	/**
-	 * Updates the display. Makes the letters in the display go left. 
-	 * When letters reach left side they "disappear". 
+	/** get the colordisplay
+	 * @return display The colorDisplay
 	 */
-	
 	public ColorDisplay getDisplay(){
 		return display;
 	}

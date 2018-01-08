@@ -16,7 +16,7 @@ public class Test5Controller {
 	/**
 	 * The delay between every update in milliseconds
 	 */
-	private static final int DELAY = 150;
+	private static final int DELAY = 100;
 
 	private int counter = 0;
 	private int tiles = 5;
@@ -34,26 +34,51 @@ public class Test5Controller {
 		t5.run();
 	}
 
+	/**
+	 * draws the background red and runs the restart method
+	 * @param ui The UI for displaying the messages
+	 */
 	public Test5Controller(Test5UI ui) {
 
 		viewer = ui;
+		restart();
+
+		Array7x7 blank = new Array7x7();
+		for (int i = 0; i < 5; i++) {
+			viewer.getDisplay().setDisplay(blank.getColoredGrid(backgroundColor, textColor).toIntArray(), 0, i);
+		}
+	}
+	
+	
+	/**
+	 * Takes input from the user and runs the restart(String s) function
+	 */
+	public void restart(){
 		input = JOptionPane.showInputDialog("Skriv något");
-		input = input.toUpperCase();
-		chars = new Array7x7[input.length()];
+		restart(input);
+	}
+	
+	/**
+	 * Generates the 7x7 arrays to display from the input message and resets the counter
+	 * @param m The input message to display
+	 */
+	private void restart(String m){
+		String message = "     " + m;
+		message = message.toUpperCase();
+		chars = new Array7x7[message.length()];
 		for (int i = 0; i < chars.length; i++) {
-			chars[i] = Signs.getChar(input.charAt(i));
+			chars[i] = Signs.getChar(message.charAt(i));
 		}
 		counter = chars.length * 7;
 
 		if (tiles > chars.length) {
 			tiles = chars.length;
 		}
-		Array7x7 blank = new Array7x7();
-		for (int i = 0; i < 5; i++) {
-			viewer.getDisplay().setDisplay(blank.getColoredGrid(backgroundColor, textColor).toIntArray(), 0, i);
-		}
 	}
 
+	/**
+	 * Starts a new timer to run update every DELAY milliseconds
+	 */
 	private void run() {
 		timer = new Timer();
 		timer.schedule(new TimerTask() {
@@ -64,6 +89,9 @@ public class Test5Controller {
 		}, 0, DELAY);
 	}
 
+	/**
+	 * Shifts every 7x7 character 1 step to the left and draws it to the colorDisplay
+	 */
 	private void update() {
 		for (int i = 0; i < tiles; i++) {
 			viewer.getDisplay().setDisplay(chars[i].getColoredGrid(backgroundColor, textColor).toIntArray(), 0, i);
@@ -87,6 +115,8 @@ public class Test5Controller {
 		counter--;
 		if (counter < 0) {
 			timer.cancel();
+			//run restart to let the user input another message
+			restart();
 		}
 	}
 
