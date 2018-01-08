@@ -10,7 +10,7 @@ public class Test5Controller {
 	/**
 	 * Variables for colors, JFrame, JPanel, ColorDisplay and more.
 	 */
-	private static final int backgroundColor = Color.RED;
+	private static final int backgroundColor = Color.WHITE;
 	private static final int textColor = Color.BLACK;
 
 	/**
@@ -37,11 +37,6 @@ public class Test5Controller {
 
 		viewer = ui;
 		restart();
-
-		Array7x7 blank = new Array7x7();
-		for (int i = 0; i < 5; i++) {
-			viewer.getDisplay().setDisplay(blank.getColoredGrid(backgroundColor, textColor).toIntArray(), 0, i);
-		}
 	}
 	
 	
