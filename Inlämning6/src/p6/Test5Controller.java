@@ -28,11 +28,7 @@ public class Test5Controller {
 
 	private Test5UI viewer;
 
-	public static void main(String[] args) {
-		Test5UI t5ui = new Test5UI();
-		Test5Controller t5 = new Test5Controller(t5ui);
-		t5.run();
-	}
+
 
 	/**
 	 * draws the background red and runs the restart method
@@ -79,7 +75,7 @@ public class Test5Controller {
 	/**
 	 * Starts a new timer to run update every DELAY milliseconds
 	 */
-	private void run() {
+	public void run() {
 		timer = new Timer();
 		timer.schedule(new TimerTask() {
 

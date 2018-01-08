@@ -10,6 +10,12 @@ import javax.swing.JPanel;
 
 public class Test5UI {
 	
+	public static void main(String[] args) {
+		Test5UI t5ui = new Test5UI();
+		Test5Controller t5 = new Test5Controller(t5ui);
+		t5.run();
+	}
+	
 	private JFrame frame;
 	private JPanel panel; 
 	private ColorDisplay display;
