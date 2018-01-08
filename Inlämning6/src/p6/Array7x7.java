@@ -164,10 +164,10 @@ public class Array7x7 {
 	}
 	
 	/**
-	 * ??????
-	 * @param color1
-	 * @param color2
-	 * @return
+	 * returns a 7x7 grid with colors instead of 1s and 0s. 0s become color1 and 1s become color2.
+	 * @param color1 the first color
+	 * @param color2 the second color
+	 * @return 7x7 grid filled with colors ready to be drawn to a colorDisplay
 	 */
 	
 	public Array7x7 getColoredGrid(int color1, int color2){ //

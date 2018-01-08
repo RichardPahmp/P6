@@ -19,7 +19,6 @@ public class Test5Controller {
 	private static final int DELAY = 100;
 
 	private int counter = 0;
-	private int tiles = 5;
 
 	private Array7x7[] chars;
 	private String input;
@@ -67,9 +66,6 @@ public class Test5Controller {
 		}
 		counter = chars.length * 7;
 
-		if (tiles > chars.length) {
-			tiles = chars.length;
-		}
 	}
 
 	/**
@@ -89,7 +85,7 @@ public class Test5Controller {
 	 * Shifts every 7x7 character 1 step to the left and draws it to the colorDisplay
 	 */
 	private void update() {
-		for (int i = 0; i < tiles; i++) {
+		for (int i = 0; i < chars.length; i++) {
 			viewer.getDisplay().setDisplay(chars[i].getColoredGrid(backgroundColor, textColor).toIntArray(), 0, i);
 		}
 		viewer.getDisplay().updateDisplay();
