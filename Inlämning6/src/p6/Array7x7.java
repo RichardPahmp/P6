@@ -178,9 +178,6 @@ public class Array7x7 {
 					res.setElement(i, j, color1);
 				} else if(res.getElement(i, j) == 1){
 					res.setElement(i, j, color2);
-				} else {
-					//res.setElement(i, j, 0);
-					//System.out.println(res.getElement(i, j));
 				}
 			}
 		}
